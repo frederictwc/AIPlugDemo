@@ -1,2 +1,3 @@
 IMAGE=$1
-docker run --ipc=host --network="host" IMAGE
+TAG=$2
+docker run --ipc=host --network="host" ${IMAGE}:${TAG}
