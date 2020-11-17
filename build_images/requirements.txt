@@ -13,6 +13,9 @@ sklearn
 pandas
 keras
 matplotlib
+opencv-python==3.2.0
+numpy==1.18.3
+
 
 # Google Cloud related packages
 google-cloud
