@@ -1,0 +1,33 @@
+ARG BASE_IMAGE=nvcr.io/nvidia/tlt-streamanalytics:v2.0_dp_py2
+
+FROM $BASE_IMAGE
+
+ARG NB_USER=jovyan
+
+USER root
+
+#ENV DEBIAN_FRONTEND noninteractive
+
+#ENV NB_USER $NB_USER
+
+#ENV NB_UID 1000
+#ENV HOME /home/$NB_USER
+#ENV NB_PREFIX /
+#ENV PATH $HOME/.local/bin:$PATH
+
+# Use bash instead of sh
+SHELL ["/bin/bash", "-c"]
+
+
+#RUN useradd -M -s /bin/bash -N -u $NB_UID $NB_USER && \
+#    chown -R ${NB_USER}:users /usr/local/bin && \
+#    mkdir -p $HOME && \
+#    chown -R ${NB_USER}:users ${HOME}
+
+
+# Configure container startup
+EXPOSE 8888
+#USER jovyan
+#ENTRYPOINT ["tini", "--"]
+#CMD ["sh","-c", "jupyter notebook --notebook-dir=/home/${NB_USER} --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='*' --NotebookApp.base_url=${NB_PREFIX}"]
+
